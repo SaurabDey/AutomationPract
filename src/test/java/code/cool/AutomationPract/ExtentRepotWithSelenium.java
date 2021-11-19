@@ -50,6 +50,7 @@ public class ExtentRepotWithSelenium {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		test.pass("Setup is complete!!");
+		test.pass("Good morning!!");
 	}
 
 	@Test

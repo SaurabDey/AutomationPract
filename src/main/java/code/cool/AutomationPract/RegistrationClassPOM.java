@@ -14,7 +14,7 @@ public class RegistrationClassPOM {
 	@FindBy(id="days")
 	WebElement days;
 
-	@FindBy(id="monthswrong")
+	@FindBy(id="months")
 	WebElement months;
 
 	WebDriver driver;

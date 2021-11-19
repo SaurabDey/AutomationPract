@@ -23,6 +23,7 @@ public class LoginClassPOM {
 	
 	public void login()
 	{	
+		System.out.println("Login method");
 		email.sendKeys("AdminSaurabTest@gmail.com");
 
 		createAcct.click();
