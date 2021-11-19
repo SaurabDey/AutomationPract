@@ -50,7 +50,6 @@ public class ExtentRepotWithSelenium {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		test.pass("Setup is complete!!");
-		test.pass("Good morning!!");
 	}
 
 	@Test
@@ -61,8 +60,6 @@ public class ExtentRepotWithSelenium {
 			LoginClassPOM log= new LoginClassPOM(driver);
 			log.login();
 			test.pass("Login methodexecuted successfully!!");
-			test.pass("Execution done");
-			test.pass("Execution");
 		} catch (Exception e) {
 			test.fail("Login had some issue!!"+e.getMessage());
 			test.fail(MediaEntityBuilder.createScreenCaptureFromPath(screenshot("screenshot1")).build());
@@ -89,6 +86,7 @@ public class ExtentRepotWithSelenium {
 		driver.quit();
 		test.info("Browser is closed!");
 		extent.flush();
+		test.pass("Extent report generated successfully!!");
 	}
 	
 	public String screenshot(String screenShotName) throws IOException
