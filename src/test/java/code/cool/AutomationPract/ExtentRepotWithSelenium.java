@@ -61,6 +61,7 @@ public class ExtentRepotWithSelenium {
 			LoginClassPOM log= new LoginClassPOM(driver);
 			log.login();
 			test.pass("Login methodexecuted successfully!!");
+			test.pass("Execution done");
 		} catch (Exception e) {
 			test.fail("Login had some issue!!"+e.getMessage());
 			test.fail(MediaEntityBuilder.createScreenCaptureFromPath(screenshot("screenshot1")).build());
