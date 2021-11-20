@@ -25,7 +25,6 @@ public class ExcelCode {
 		//----------Read excel---------------//
 		String x= sheet.getRow(0).getCell(0).getStringCellValue();
 		String y= sheet.getRow(0).getCell(1).getStringCellValue();
-		
 		System.out.println(x);
 		System.out.println(y);
 		
@@ -44,7 +43,6 @@ public class ExcelCode {
 		driver.findElement(By.id("btnLogin")).click();
 		//----------Read excel---------------//
 		//----------Write excel---------------//
-		
 		sheet.getRow(1).createCell(2).setCellValue("PASS");
 		
 		FileOutputStream fos= new FileOutputStream(file);
