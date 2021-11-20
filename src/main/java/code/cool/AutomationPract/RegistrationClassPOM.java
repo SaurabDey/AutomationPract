@@ -1,5 +1,7 @@
 package code.cool.AutomationPract;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,11 +29,14 @@ public class RegistrationClassPOM {
 	{
 		mr.click();
 
+		CommonUtill common= new CommonUtill(driver);
+		List<String> exceldata=common.readExcel();
+		
 		Select daySel= new Select(days);
-		daySel.selectByValue("20");
+		daySel.selectByValue(exceldata.get(3));//20-- 20.0
 
 		Select monthsSel= new Select(months);
-		monthsSel.selectByValue("8");//august
+		monthsSel.selectByValue(exceldata.get(4));//august
 
 	}
 }

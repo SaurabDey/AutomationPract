@@ -62,7 +62,8 @@ public class ExtentRepotWithSelenium {
 			test.pass("Login methodexecuted successfully!!");
 		} catch (Exception e) {
 			test.fail("Login had some issue!!"+e.getMessage());
-			test.fail(MediaEntityBuilder.createScreenCaptureFromPath(screenshot("screenshot1")).build());
+			CommonUtill common= new CommonUtill(driver);
+			test.fail(MediaEntityBuilder.createScreenCaptureFromPath(common.screenshot("screenshot1")).build());
 		}
 	}
 	@Test
@@ -75,7 +76,8 @@ public class ExtentRepotWithSelenium {
 			test.pass("Registration methodexecuted successfully!!");
 		} catch (Exception e) {
 			test.fail("Registration had some issue!!" + e.getMessage());
-			test.fail(MediaEntityBuilder.createScreenCaptureFromPath(screenshot("screenshot2")).build());
+			CommonUtill common= new CommonUtill(driver);
+			test.fail(MediaEntityBuilder.createScreenCaptureFromPath(common.screenshot("screenshot2")).build());
 		}
 		
 		
@@ -89,13 +91,5 @@ public class ExtentRepotWithSelenium {
 		test.pass("Extent report generated successfully!!");
 	}
 	
-	public String screenshot(String screenShotName) throws IOException
-	{
-		TakesScreenshot ts = (TakesScreenshot)driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		String dest = System.getProperty("user.dir") +"\\Screens\\"+screenShotName+".png";
-		File destination = new File(dest);
-		FileUtils.copyFile(source, destination);
-		return dest;        
-	}
+	
 }

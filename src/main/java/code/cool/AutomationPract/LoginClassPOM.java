@@ -1,5 +1,7 @@
 package code.cool.AutomationPract;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,7 +26,11 @@ public class LoginClassPOM {
 	public void login()
 	{	
 		System.out.println("Login method");
-		email.sendKeys("AdminSaurabTest@gmail.com");
+		
+		CommonUtill common= new CommonUtill(driver);
+		List<String> exceldata=common.readExcel();
+		System.out.println("Excel data at 2 is giving me :::"+ exceldata.get(2));
+		email.sendKeys(exceldata.get(2));
 
 		createAcct.click();
 	}
