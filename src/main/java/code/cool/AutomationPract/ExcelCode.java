@@ -23,23 +23,22 @@ public class ExcelCode {
 		XSSFWorkbook excel= new XSSFWorkbook(fis);
 		XSSFSheet sheet= excel.getSheet("Sheet1");
 		//----------Read excel---------------//
-		String x= sheet.getRow(0).getCell(0).getStringCellValue();
-		String y= sheet.getRow(0).getCell(1).getStringCellValue();
-		System.out.println(x);
-		System.out.println(y);
-		
-		String a= sheet.getRow(1).getCell(0).getStringCellValue();
-		String b= sheet.getRow(1).getCell(1).getStringCellValue();
-		System.out.println(a);
-		System.out.println(b);
+		String x=null;
+		String y=null;
+		for (int i = 0; i < 2; i++) {
+			x= sheet.getRow(i).getCell(0).getStringCellValue();
+			y= sheet.getRow(i).getCell(1).getStringCellValue();
+			System.out.println(x);
+			System.out.println(y);
+		}
 		
 		System.setProperty("webdriver.edge.driver", "resource/msedgedriver.exe");
 		WebDriver driver= new EdgeDriver();
 		driver.get("https://opensource-demo.orangehrmlive.com/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
-		driver.findElement(By.id("txtUsername")).sendKeys(a);
-		driver.findElement(By.id("txtPassword")).sendKeys(b);
+		driver.findElement(By.id("txtUsername")).sendKeys(x);
+		driver.findElement(By.id("txtPassword")).sendKeys(y);
 		driver.findElement(By.id("btnLogin")).click();
 		//----------Read excel---------------//
 		//----------Write excel---------------//
